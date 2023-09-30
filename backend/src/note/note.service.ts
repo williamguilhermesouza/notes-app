@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 import { Note } from './note.entity';
 
 @Injectable()
@@ -10,49 +10,26 @@ export class NoteService {
         private noteRepository: Repository<Note>,
     ) {}
 
-    async findAll(): Promise<Note> {
+    async findAll(): Promise<Note[]> {
         // must be sorted by favorite
         // can implement filters of creation date and color here
-        return {
-            id: 1,
-            name: 'Find All',
-            creation_date: new Date(Date.now()),
-            favorite: true,
-            color: 1,
-            content: [],   
-        };
+
+        return await this.noteRepository.find();
     }
 
     async findOne(id: number): Promise<Note> {
-        return {
-            id: id,
-            name: 'Find One',
-            creation_date: new Date(Date.now()),
-            favorite: true,
-            color: 1,
-            content: [],   
-        };
+        return await this.noteRepository.findOne({where: {id}});
     }
     async create(note: Note): Promise<Note> {
-        return note;
+        return await this.noteRepository.save(note);
     }
 
     async update(id: number, note: Note): Promise<{}> {
-        note.id = id;
-        return {
-            note,  
-        };
+        return await this.noteRepository.update(id, note);
     }
 
     async delete(id: number): Promise<{}> {
-        return {
-            id: id,
-            name: 'delete',
-            creation_date: new Date(Date.now()),
-            favorite: true,
-            color: 1,
-            content: [],   
-        };
+        return await this.noteRepository.delete(id);
     }
 
     async updateSingleItem(item: string): Promise<string> {

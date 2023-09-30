@@ -8,7 +8,7 @@ export class NoteController {
     constructor(private readonly noteService: NoteService){}
 
     @Get()
-    findAllNotes(): Promise<Note> {
+    findAllNotes(): Promise<Note[]> {
         return this.noteService.findAll();
     }
 
