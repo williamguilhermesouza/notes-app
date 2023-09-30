@@ -28,6 +28,7 @@ export class NoteService {
     }
 
     async update(id: number, note: Note): Promise<{}> {
+        note.id = id;
         return {
             note,  
         };
