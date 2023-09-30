@@ -1,4 +1,5 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Note } from './note/note.entity';
 
 export const DBConnect = TypeOrmModule.forRoot({
     type: 'mariadb',
@@ -7,6 +8,6 @@ export const DBConnect = TypeOrmModule.forRoot({
     username: 'root',
     password: 'root',
     database: 'corelabbr',
-    entities: [],
+    entities: [Note],
     synchronize: true,
   });

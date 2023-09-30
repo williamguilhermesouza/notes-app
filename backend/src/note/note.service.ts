@@ -1,8 +1,14 @@
 import { Injectable } from '@nestjs/common';
-import { Note } from './note.interface';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Note } from './note.entity';
 
 @Injectable()
 export class NoteService {
+    constructor(
+        @InjectRepository(Note)
+        private noteRepository: Repository<Note>,
+    ) {}
 
     async findAll(): Promise<Note> {
         // must be sorted by favorite
