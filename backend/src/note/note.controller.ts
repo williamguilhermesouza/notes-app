@@ -1,4 +1,13 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+import { NoteService } from './note.service';
+import { Note } from './note.interface';
 
-@Controller('note')
-export class NoteController {}
+@Controller('notes')
+export class NoteController {
+    constructor(private readonly noteService: NoteService){}
+
+    @Get()
+    findAllNotes(): Note {
+        return this.noteService.findAll();
+    }
+}
