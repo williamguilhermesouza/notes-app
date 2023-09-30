@@ -10,11 +10,16 @@ export class NoteService {
         private noteRepository: Repository<Note>,
     ) {}
 
-    async findAll(): Promise<Note[]> {
-        // must be sorted by favorite
-        // can implement filters of creation date and color here
-
-        return await this.noteRepository.find();
+    async findAll(colorFilter?: number, favoriteFilter?: boolean): Promise<Note[]> {
+        
+        let favorite, color;
+        favoriteFilter ? favorite = true : favorite = undefined;
+        colorFilter ? color = colorFilter : color = undefined;
+        
+        return await this.noteRepository.find({
+            order: {favorite: "DESC"},
+            where: {favorite: favoriteFilter, color: colorFilter},
+        });
     }
 
     async findOne(id: number): Promise<Note> {
