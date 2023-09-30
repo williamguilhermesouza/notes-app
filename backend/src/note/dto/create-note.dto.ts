@@ -4,5 +4,5 @@ export interface CreateNoteDto {
     creation_date: Date;
     favorite: boolean;
     color: number;
-    content: [];
+    content: string[];
 }

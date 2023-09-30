@@ -32,7 +32,10 @@ export class NoteService {
         return await this.noteRepository.delete(id);
     }
 
-    async updateSingleItem(item: string): Promise<string> {
+    async updateSingleItem(id: number, item: string, itemIndex: number): Promise<string> {
+        let note = await this.noteRepository.findOne({where: {id}});
+        note.content[itemIndex] = item;
+        await this.noteRepository.update(id, note);
         return item;
     }
 }

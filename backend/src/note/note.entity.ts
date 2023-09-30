@@ -18,5 +18,5 @@ export class Note {
     color: number;
 
     @Column('simple-array')
-    content: [];
+    content: string[];
 }

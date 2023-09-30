@@ -2,6 +2,7 @@ import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common'
 import { NoteService } from './note.service';
 import { CreateNoteDto } from './dto/create-note.dto';
 import { Note } from './note.interface';
+import { SingleItemDto } from './dto/single-item.dto';
 
 @Controller('notes')
 export class NoteController {
@@ -32,5 +33,10 @@ export class NoteController {
     @Delete(':id')
     deleteNote(@Param('id') id): Promise<{}> {
         return this.noteService.delete(id);
+    }
+
+    @Put('item/:id')
+    updateSingleItem(@Body() singleItemDto: SingleItemDto, @Param('id') id): Promise<string> {
+        return this.noteService.updateSingleItem(id, singleItemDto.item, singleItemDto.itemIndex);
     }
 }

@@ -4,5 +4,5 @@ export interface Note {
     creation_date: Date;
     favorite: boolean;
     color: number;
-    content: [];
+    content: string[];
 }
