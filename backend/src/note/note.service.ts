@@ -5,7 +5,8 @@ import { Note } from './note.interface';
 export class NoteService {
 
     async findAll(): Promise<Note> {
-        // must be sorted by favorite and creation date
+        // must be sorted by favorite
+        // can implement filters of creation date and color here
         return {
             id: 1,
             name: 'Find All',
@@ -46,5 +47,9 @@ export class NoteService {
             color: 1,
             content: [],   
         };
+    }
+
+    async updateSingleItem(item: string): Promise<string> {
+        return item;
     }
 }
