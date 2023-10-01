@@ -5,15 +5,16 @@ import fav from '@/../public/fav.ico';
 import notfav from '@/../public/notfav.ico';
 
 
-export default function Note() {
+export default function Note(props: any) {
+
     return(
         //need to create color style
-        <div className={`${styles.noteCard} card border rounded align-self-start`}>
+        <div className={`${styles.noteCard} card border rounded mt-3 align-self-start`}>
             <div className="card-body">
                 <div className={styles.cardHeader}>
-                    <h5 className="card-title">Note name</h5>
+                    <h5 className="card-title">{props.name}</h5>
                     <Image
-                        src={fav}
+                        src={props.favorite? fav : notfav}
                         width={20}
                         height={20}
                         alt="favorite"
@@ -21,9 +22,9 @@ export default function Note() {
                 </div>
                 <div className="card-text">
                     <ul>
-                        <li>note 1</li>
-                        <li>note 2</li>
-                        <li>note 3</li>
+                        {
+                            props.content.map((item: string) => (<li>{item}</li>))
+                        }
                     </ul>
                 </div>
             </div>
