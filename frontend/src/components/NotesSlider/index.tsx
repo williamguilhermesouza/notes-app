@@ -1,6 +1,8 @@
 import Note from "../Note";
 import 'bootstrap/dist/css/bootstrap.css';
 import styles from './styles.module.css';
+import backend from "@/pages/services/backend";
+import { useState, useEffect } from "react";
 
 const NoteMock = {
     "id": 0,
@@ -44,14 +46,34 @@ const NoteMock3 = {
     ]
 }
 
+interface noteInterface {
+    id: number;
+    name: string;
+    creation_date: Date;
+    favorite: boolean;
+    color: number;
+    content: string[];
+}
+
+
 const NoteArray = [NoteMock, NoteMock2, NoteMock3];
 
 export default function NotesSlider() {
+    const [notes, setNotes] = useState([]);
+
+    useEffect(() => {
+        backend.get('notes').then((response: any) => {
+            setNotes(response.data);
+        })
+    }, []);
+
+
     return(
         <div className={`${styles.mainContainer} container mt-5`}>
             <div className={`${styles.mainRow} row text-center rounded-4`}>
                 {
-                    NoteArray.map((note) => <Note key={note.id} name={note.name} favorite={note.favorite} content={note.content} />)
+                    notes.map((note: noteInterface) => <Note key={note.id} name={note.name} favorite={note.favorite} content={note.content} />)
+                    //NoteArray.map((note) => <Note key={note.id} name={note.name} favorite={note.favorite} content={note.content} />)
                 }
                 
             </div>
