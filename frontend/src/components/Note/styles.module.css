@@ -1,10 +1,11 @@
 .noteCard {
     display: flex;
     flex-direction: row;
-    background-color: brown;
+    background-color: lightgray;
     width: 200px;
     max-height: 400px;
     margin-right: 35px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .cardHeader {

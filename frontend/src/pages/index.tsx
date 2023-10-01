@@ -15,9 +15,9 @@ export default function Home() {
       </Head>
       <main>
         <section className="top-area">
-          <div className='container text-center mt-3'>
+          <div className='container text-center mt-4'>
             <div className="row justify-content-center">
-              <input className='col-8' type="text" placeholder='Create a note' />
+              <input className='create-note col-8 rounded-2 text-center' type="text" placeholder='Create a note' />
             </div>
           </div>
         </section>

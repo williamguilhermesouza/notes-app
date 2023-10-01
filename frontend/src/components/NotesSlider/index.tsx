@@ -70,10 +70,9 @@ export default function NotesSlider() {
 
     return(
         <div className={`${styles.mainContainer} container mt-5`}>
-            <div className={`${styles.mainRow} row text-center rounded-4`}>
+            <div className={`${styles.mainRow} row text-center rounded justify-content-center`}>
                 {
                     notes.map((note: noteInterface) => <Note key={note.id} name={note.name} favorite={note.favorite} content={note.content} />)
-                    //NoteArray.map((note) => <Note key={note.id} name={note.name} favorite={note.favorite} content={note.content} />)
                 }
                 
             </div>
