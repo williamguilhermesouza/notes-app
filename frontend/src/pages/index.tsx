@@ -1,7 +1,7 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '@/styles/Home.module.css'
-
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '@/styles/Home.module.css';
+import 'bootstrap/dist/css/bootstrap.css';
 import NotesSlider from '@/components/NotesSlider';
 
 export default function Home() {
@@ -14,18 +14,28 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className='container text-center'>
-          <div className="row">
-            <input className='col-12' type="text" placeholder='Create a note' />
+        <section className="top-area">
+          <div className='container text-center mt-3'>
+            <div className="row">
+              <input className='col-12' type="text" placeholder='Create a note' />
+            </div>
           </div>
-        </div>
-        <div className="middle-area">
-          <NotesSlider/>
-        </div>
+        </section>
+        <section className="middle-area">
+          <div className="container">
+            <div className="row">
+              <NotesSlider/>
+            </div>
+          </div>
+        </section>
       </main>
       <footer>
-        <p>Created by William Souza</p>
+        <div className="container text-end mb-3">
+          <div className="row justify-content-end">
+            <p className='col-12'>Created by William Souza</p>
+          </div>
+        </div>
       </footer>
     </>
   )
-}
+};

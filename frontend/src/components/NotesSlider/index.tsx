@@ -1,9 +1,12 @@
 import Note from "../Note";
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default function NotesSlider() {
     return(
-        <div>
-            <Note/>
+        <div className="container">
+            <div className="row text-center">
+                <Note/>
+            </div>
         </div>
     );
 }
