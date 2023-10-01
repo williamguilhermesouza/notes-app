@@ -1,0 +1,12 @@
+.noteCard {
+    background-color: brown;
+    width: 200px;
+    max-height: 400px;
+    margin-right: 35px;
+}
+
+.cardHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
