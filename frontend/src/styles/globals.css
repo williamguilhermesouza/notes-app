@@ -1,13 +1,30 @@
-html {
-    width: 100%;
-    height: 100%;
-    background-color: indigo;
+* {
     color: white;
+    padding: 0;
+    margin: 0;
 }
 
-body {
+html, body, main {
+    position: absolute;
+    background-color: indigo;
     width: 100%;
     height: 100%;
+}
+
+main {
+    position: absolute;
     background-color: indigo;
-    color: white;
+    width: 100%;
+    height: 100%;
+}
+
+
+header, footer {
+    background-color: indigo;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
 }

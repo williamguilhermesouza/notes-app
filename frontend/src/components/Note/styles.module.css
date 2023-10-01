@@ -1,4 +1,6 @@
 .noteCard {
+    display: flex;
+    flex-direction: row;
     background-color: brown;
     width: 200px;
     max-height: 400px;

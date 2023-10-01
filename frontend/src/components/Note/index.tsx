@@ -8,7 +8,7 @@ import notfav from '@/../public/notfav.ico';
 export default function Note() {
     return(
         //need to create color style
-        <div className={`${styles.noteCard} card border rounded`}>
+        <div className={`${styles.noteCard} card border rounded align-self-start`}>
             <div className="card-body">
                 <div className={styles.cardHeader}>
                     <h5 className="card-title">Note name</h5>

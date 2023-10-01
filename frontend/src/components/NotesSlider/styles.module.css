@@ -1,4 +1,10 @@
 .mainRow {
     background-color: aqua;
+    padding: 20px;
     height: 100%;
+}
+
+.mainContainer {
+    min-height: 450px;
+    justify-content: center;
 }

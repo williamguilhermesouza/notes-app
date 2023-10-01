@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 
 export default function NotesSlider() {
     return(
-        <div className={"container mt-3 w-80"}>
+        <div className={`${styles.mainContainer} container mt-3`}>
             <div className={`${styles.mainRow} row text-center`}>
                 <Note/>
                 <Note/>

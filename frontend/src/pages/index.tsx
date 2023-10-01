@@ -21,21 +21,21 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="middle-area h-100 text-center">
+        <section className="middle-area text-center">
           <div className="container">
             <div className="row">
               <NotesSlider/>
             </div>
           </div>
         </section>
-      </main>
-      <footer>
-        <div className="container text-end mb-3">
-          <div className="row justify-content-end">
-            <p className='col-12'>Created by William Souza</p>
+        <footer>
+          <div className="container text-end mb-3">
+            <div className="row justify-content-end">
+              <p className='col-12'>Created by William Souza</p>
+            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </main>
     </>
   )
 };
