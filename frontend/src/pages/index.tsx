@@ -21,7 +21,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="middle-area">
+        <section className="middle-area h-100 text-center">
           <div className="container">
             <div className="row">
               <NotesSlider/>

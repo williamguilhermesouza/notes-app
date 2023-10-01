@@ -1,7 +1,8 @@
+
 export default function Note() {
     return(
         //need to create color style
-        <div>
+        <div className='border rounded d-inline'>
             <h3>Note name</h3>
             <a href=""><img src="" alt="favorite-btn" /></a>
             <ul>
