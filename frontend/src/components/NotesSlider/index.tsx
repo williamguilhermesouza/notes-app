@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import styles from './styles.module.css';
 import backend from "@/pages/services/backend";
 import { useState, useEffect } from "react";
-import { Modal, Button } from 'react-bootstrap';
 
 interface noteInterface {
     id: number;
@@ -36,30 +35,7 @@ export default function NotesSlider() {
                     notes.map((note: noteInterface) => <Note key={note.id} name={note.name} favorite={note.favorite} content={note.content} />)
                 }
                 
-            </div>
-
-
-            <>
-                <Button variant="success" onClick={initModal}>
-                    Open Modal
-                </Button>
-                <Modal show={isShow}>
-                    <Modal.Header closeButton onClick={initModal}>
-                        <Modal.Title>React Modal Popover Example</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </Modal.Body>
-                    <Modal.Footer>
-                    <Button variant="danger" onClick={initModal}>
-                        Close
-                    </Button>
-                    <Button variant="dark" onClick={initModal}>
-                        Store
-                    </Button>
-                    </Modal.Footer>
-                </Modal>
-            </>
+            </div>           
         </div>
     );
 }

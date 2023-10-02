@@ -1,16 +1,25 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import styles from '@/styles/Home.module.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import backend from './services/backend';
 import NotesSlider from '@/components/NotesSlider';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function Home() {
+  let [noteName, setNoteName] = useState('');
+
+  const router = useRouter();
 
   async function createNote(e: any) {
     e.preventDefault();
 
-    let data: any;
+    let data: any = {
+      name: noteName,
+      creation_date: new Date(Date.now()),
+      favorite: false,
+      color: 0,
+      content: [],
+    };
 
     try {
       await backend.post('notes', data);
@@ -18,6 +27,9 @@ export default function Home() {
     } catch (err) {
       alert('Error creating note.');
     }
+
+    router.reload();
+    alert('Reloading!');
   }
 
   return (
@@ -32,7 +44,9 @@ export default function Home() {
         <section className="top-area">
           <div className='container text-center mt-4'>
             <div className="row justify-content-center">
-              <input className='create-note col-8 rounded-2 text-center' type="text" placeholder='Create a note' />
+              <form onSubmit={createNote}>
+                <input className='create-note col-8 rounded-2 text-center' onChange={e => setNoteName(e.target.value)} type="text" placeholder='Create a note' />
+              </form>
             </div>
           </div>
         </section>
