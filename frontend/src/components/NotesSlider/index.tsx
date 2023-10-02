@@ -1,4 +1,5 @@
 import Note from "../Note";
+import NoteModal from "../NoteModal";
 import 'bootstrap/dist/css/bootstrap.css';
 import styles from './styles.module.css';
 import backend from "@/pages/services/backend";
@@ -15,10 +16,21 @@ interface noteInterface {
 
 export default function NotesSlider() {
     const [notes, setNotes] = useState([]);
+    const [note, setNote] = useState({
+        "name": "Error",
+        "creation_date": new Date(Date.now()),
+        "favorite": false,
+        "color": 0,
+        "content": []
+    });
 
-    const [isShow, invokeModal] = useState(false);
-    const initModal = () => {
-        return invokeModal(!false);
+    const [isShow, setIsShow] = useState(false);
+
+    const initModal = (e: any, openNote?: any) => {
+        if (openNote) {
+            setNote(openNote);
+        }
+        return setIsShow(!isShow);
     }
 
     useEffect(() => {
@@ -30,12 +42,12 @@ export default function NotesSlider() {
 
     return(
         <div className={`${styles.mainContainer} container mt-5`}>
-            <div className={`${styles.mainRow} row text-center rounded justify-content-center`}>
+            <div className={`${styles.mainRow} row rounded justify-content-center align-items-center`}>
                 {
-                    notes.map((note: noteInterface) => <Note key={note.id} name={note.name} favorite={note.favorite} content={note.content} />)
+                    notes.map((note: noteInterface) => <button className={styles.noteBtn} onClick={(e) =>initModal(e, note)}><Note key={note.id} name={note.name} favorite={note.favorite} content={note.content}  /></button>)
                 }
-                
-            </div>           
+            </div>
+            <NoteModal initModal={initModal} isShow={isShow} note={note}/>
         </div>
     );
 }

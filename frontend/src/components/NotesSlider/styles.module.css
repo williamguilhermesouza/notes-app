@@ -7,4 +7,17 @@
 .mainContainer {
     min-height: 450px;
     justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;}
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.noteBtn {
+    all: unset;
+    width: 200px;
+    display:table;
+    margin: 20px 35px 0 0;
+    background-color: lightgray;
+}
+
+.noteBtn:focus {
+    outline: revert;
+}

@@ -20,7 +20,7 @@ export default function Note(props: any) {
                         alt="favorite"
                     />
                 </div>
-                <div className="card-text">
+                <div className="card-text text-start">
                     <ul>
                         {
                             props.content.map((item: string, index: number) => (<li key={index}>{item}</li>))

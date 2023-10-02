@@ -1,0 +1,19 @@
+.newInput {
+    all: unset;
+}
+
+.favLogo {
+    position: relative;
+}
+
+.modalHeader {
+    text-align: start;
+}
+
+.favButton {
+    all: unset;
+}
+
+.favButton:focus {
+    outline: revert;
+  }
