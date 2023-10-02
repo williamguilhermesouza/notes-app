@@ -2,9 +2,24 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '@/styles/Home.module.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import backend from './services/backend';
 import NotesSlider from '@/components/NotesSlider';
 
 export default function Home() {
+
+  async function createNote(e: any) {
+    e.preventDefault();
+
+    let data: any;
+
+    try {
+      await backend.post('notes', data);
+      //must reload page
+    } catch (err) {
+      alert('Error creating note.');
+    }
+  }
+
   return (
     <>
       <Head>
